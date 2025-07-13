@@ -4,6 +4,12 @@ import { useFetch } from '@/hooks/useFetch';
 import CardWrapper from '@/components/posts/CardWrapper';
 import Link from 'next/link';
 
+type User = {
+  id: number;
+  name: string;
+  email: string;
+};
+
 const Users = () => {
   const { data, loading, error } = useFetch(
     'https://jsonplaceholder.typicode.com/users'
@@ -19,7 +25,7 @@ const Users = () => {
 
   return (
     <CardWrapper>
-      {data.map((user: any) => (
+      {data.map((user: User) => (
         <Link href={`/users/${user.id}`} key={user.id}>
           <div
             className='card w-full bg-base-200 card-sm md:card-md shadow-sm'

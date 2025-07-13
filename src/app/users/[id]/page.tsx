@@ -3,16 +3,10 @@
 import UserInfo from '@/components/users/UserInfo';
 import UserInfoWrapper from '@/components/users/UserInfoWrapper';
 import UserPosts from '@/components/users/UserPosts';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import { useFetch } from '@/hooks/useFetch';
 
-type Props = {
-  params: {
-    id: string;
-  };
-};
-
-const User = ({ params }: Props) => {
+const User = () => {
   const { id } = useParams();
   const userId = id as string;
 

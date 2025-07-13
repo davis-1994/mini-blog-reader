@@ -1,14 +1,16 @@
 'use client';
 
-import { useState } from 'react';
-
 import { useFetch } from '@/hooks/useFetch';
 import CardWrapper from '../posts/CardWrapper';
 import PostCard from '../posts/PostCard';
 
+type Post = {
+  id: number;
+  title: string;
+  body: string;
+};
+
 const UserPosts = ({ userId }: { userId: string }) => {
-  const [page, setPage] = useState<number>(1);
-  const [maxPage, setMaxPage] = useState<number>(10);
   const { data, loading, error } = useFetch(
     'https://jsonplaceholder.typicode.com/posts?userId=' + userId
   );
@@ -23,7 +25,7 @@ const UserPosts = ({ userId }: { userId: string }) => {
         {loading ? (
           <div className='text-center'>Loading...</div>
         ) : (
-          data.map((post: any) =>
+          data.map((post: Post) =>
             PostCard({
               post: {
                 id: post.id,

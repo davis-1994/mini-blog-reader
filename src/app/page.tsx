@@ -7,9 +7,15 @@ import Pagination from '@/components/posts/Pagination';
 import CardWrapper from '@/components/posts/CardWrapper';
 import PostCard from '@/components/posts/PostCard';
 
+type Post = {
+  id: number;
+  title: string;
+  body: string;
+};
+
 const Home = () => {
   const [page, setPage] = useState<number>(1);
-  const [maxPage, setMaxPage] = useState<number>(10);
+  const maxPage = 10;
   const { data, loading, error } = useFetch(
     'https://jsonplaceholder.typicode.com/posts?_limit=10&_page=' + page
   );
@@ -24,7 +30,7 @@ const Home = () => {
         {loading ? (
           <div className='text-center'>Loading...</div>
         ) : (
-          data.map((post: any) =>
+          data.map((post: Post) =>
             PostCard({
               post: {
                 id: post.id,
