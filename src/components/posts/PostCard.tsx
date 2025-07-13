@@ -22,9 +22,9 @@ const PostCard = ({ post }: { post: Post }) => {
         <h2 className='card-title'>{title}</h2>
         <p>{truncatedBody}</p>
         <div className='justify-end card-actions'>
-          <button className='btn btn-primary'>
-            <Link href={`/posts/${id}`}>Read</Link>
-          </button>
+          <Link href={`/posts/${id}`}>
+            <button className='btn btn-primary'>Read</button>
+          </Link>
         </div>
       </div>
     </div>
