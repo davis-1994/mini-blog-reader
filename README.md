@@ -8,7 +8,7 @@ This is a responsive web application built with **Next.js 15 App Router**, featu
 
 1. **Clone the repo**
 
-   git clone https://github.com/your-username/your-project.git
+   git clone https://github.com/davis-1994/mini-blog-reader
    cd mini-blog
 
 2. **Install dependencies**
